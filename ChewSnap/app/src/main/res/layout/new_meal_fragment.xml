@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/greenpinkfade">
 
     <TextView
         android:text="Description"
@@ -59,35 +60,38 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <ImageView
+        android:layout_width="200px"
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        android:id="@+id/appetizerImage"
+        android:layout_height="200px"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/description"
+        android:layout_alignRight="@+id/description"
+        android:layout_alignEnd="@+id/description" />
+
+    <RatingBar
+        android:layout_height="wrap_content"
+        android:id="@+id/appetizerRating"
+        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar"
+        android:isIndicator="false"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:layout_marginTop="21dp"
+        android:layout_alignTop="@+id/appetizerImage"
+        android:layout_alignRight="@+id/appetizerImage"
+        android:layout_alignEnd="@+id/appetizerImage"
+        android:layout_marginRight="34dp"
+        android:layout_marginEnd="34dp" />
+
     <Button
         android:text="Add Appetizer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:id="@+id/button"
-        android:layout_alignTop="@+id/imageView"
+        android:id="@+id/appetizer"
+        android:layout_alignTop="@+id/appetizerRating"
         android:layout_alignLeft="@+id/descriptionLabel"
         android:layout_alignStart="@+id/descriptionLabel" />
-
-    <RatingBar
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        style="@style/Widget.AppCompat.RatingBar.Indicator"
-        android:layout_below="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
-
-    <ImageView
-        android:layout_width="200px"
-        app:srcCompat="@android:drawable/ic_menu_gallery"
-        android:id="@+id/imageView"
-        android:layout_height="200px"
-        android:layout_marginTop="57dp"
-        android:layout_below="@+id/description"
-        android:layout_alignRight="@+id/description"
-        android:layout_alignEnd="@+id/description"
-        android:layout_marginRight="26dp"
-        android:layout_marginEnd="26dp" />
 
 </RelativeLayout>
