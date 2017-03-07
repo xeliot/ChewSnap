@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 public class MainActivity extends FragmentActivity {
 
     ViewPager viewpager;
+    public boolean accessible = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

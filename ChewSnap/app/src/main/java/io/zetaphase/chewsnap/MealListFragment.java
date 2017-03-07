@@ -3,6 +3,7 @@ package io.zetaphase.chewsnap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,8 @@ public class MealListFragment extends Fragment {
         mealList.addAll(Arrays.asList(meals));
         listAdapter = new ArrayAdapter<String>(getActivity(), R.layout.meal_row, mealList);
         mealListView.setAdapter(listAdapter);
+        MainActivity access = (MainActivity) getActivity();
+        Log.d("ACCESS", ""+access.accessible);
         return view;
     }
 
