@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ChewSnap</string>
+    <color name="white">#FFFFFF</color>
 </resources>
