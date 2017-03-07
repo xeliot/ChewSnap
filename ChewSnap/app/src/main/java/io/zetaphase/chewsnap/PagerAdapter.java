@@ -16,11 +16,19 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int arg0){
+        switch(arg0){
+            case 0:
+                return new MealListFragment();
+            case 1:
+                return new NewMealFragment();
+            case 2:
+                return new InboxFragment();
+        }
         return null;
     }
 
     @Override
     public int getCount(){
-        return 0;
+        return 3;
     }
 }
