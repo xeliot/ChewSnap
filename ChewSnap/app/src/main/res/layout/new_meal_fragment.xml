@@ -1,97 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/greenpinkfade">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
 
-    <TextView
-        android:text="Description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/descriptionLabel"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="18sp"
-        android:layout_below="@+id/mealName"
-        android:layout_alignLeft="@+id/nameLabel"
-        android:layout_alignStart="@+id/nameLabel"
-        android:layout_marginTop="11dp" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="@drawable/bg">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/description"
-        android:text="elaborate"
-        android:layout_alignBaseline="@+id/descriptionLabel"
-        android:layout_alignBottom="@+id/descriptionLabel"
-        android:layout_alignRight="@+id/mealName"
-        android:layout_alignEnd="@+id/mealName"
-        android:fontFamily="sans-serif-smallcaps" />
+        <TextView
+            android:text="Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/descriptionLabel"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="18sp"
+            android:layout_below="@+id/mealName"
+            android:layout_alignLeft="@+id/nameLabel"
+            android:layout_alignStart="@+id/nameLabel"
+            android:layout_marginTop="11dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Enter name"
-        android:ems="10"
-        android:id="@+id/mealName"
-        android:fontFamily="sans-serif-smallcaps"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/description"
+            android:text="elaborate"
+            android:layout_alignBaseline="@+id/descriptionLabel"
+            android:layout_alignBottom="@+id/descriptionLabel"
+            android:layout_alignRight="@+id/mealName"
+            android:layout_alignEnd="@+id/mealName"
+            android:fontFamily="sans-serif-smallcaps" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/nameLabel"
-        tools:text="Meal Name"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="18sp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
-        android:layout_alignBaseline="@+id/mealName"
-        android:layout_alignBottom="@+id/mealName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Enter name"
+            android:ems="10"
+            android:id="@+id/mealName"
+            android:fontFamily="sans-serif-smallcaps"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:layout_width="200px"
-        app:srcCompat="@android:drawable/ic_menu_gallery"
-        android:id="@+id/appetizerImage"
-        android:layout_height="200px"
-        android:layout_marginTop="51dp"
-        android:layout_below="@+id/description"
-        android:layout_alignRight="@+id/description"
-        android:layout_alignEnd="@+id/description" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameLabel"
+            tools:text="Meal Name"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="18sp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:layout_alignBaseline="@+id/mealName"
+            android:layout_alignBottom="@+id/mealName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <RatingBar
-        android:layout_height="wrap_content"
-        android:id="@+id/appetizerRating"
-        android:layout_width="wrap_content"
-        style="@style/Widget.AppCompat.RatingBar"
-        android:isIndicator="false"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
-        android:layout_marginTop="21dp"
-        android:layout_alignTop="@+id/appetizerImage"
-        android:layout_alignRight="@+id/appetizerImage"
-        android:layout_alignEnd="@+id/appetizerImage"
-        android:layout_marginRight="34dp"
-        android:layout_marginEnd="34dp" />
+        <ImageView
+            android:layout_width="200px"
+            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:id="@+id/appetizerImage"
+            android:layout_height="200px"
+            android:layout_marginTop="51dp"
+            android:layout_below="@+id/description"
+            android:layout_alignRight="@+id/description"
+            android:layout_alignEnd="@+id/description" />
 
-    <Button
-        android:text="Add Appetizer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/appetizer"
-        android:layout_alignTop="@+id/appetizerRating"
-        android:layout_alignLeft="@+id/descriptionLabel"
-        android:layout_alignStart="@+id/descriptionLabel" />
+        <RatingBar
+            android:layout_height="wrap_content"
+            android:id="@+id/appetizerRating"
+            android:layout_width="wrap_content"
+            style="@style/Widget.AppCompat.RatingBar"
+            android:isIndicator="false"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:layout_marginTop="21dp"
+            android:layout_alignTop="@+id/appetizerImage"
+            android:layout_alignRight="@+id/appetizerImage"
+            android:layout_alignEnd="@+id/appetizerImage"
+            android:layout_marginRight="34dp"
+            android:layout_marginEnd="34dp" />
 
-</RelativeLayout>
+        <Button
+            android:text="Add Appetizer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/appetizer"
+            android:layout_alignTop="@+id/appetizerRating"
+            android:layout_alignLeft="@+id/descriptionLabel"
+            android:layout_alignStart="@+id/descriptionLabel" />
+
+    </RelativeLayout>
+
+</ScrollView>
