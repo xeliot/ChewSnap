@@ -17,4 +17,8 @@ public class NewMealFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.new_meal_fragment, container, false);
     }
+
+    public void addMeal(){
+
+    }
 }

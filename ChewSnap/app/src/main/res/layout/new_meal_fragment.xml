@@ -97,6 +97,17 @@
             android:layout_alignLeft="@+id/descriptionLabel"
             android:layout_alignStart="@+id/descriptionLabel" />
 
+        <Button
+            android:text="Add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appetizerImage"
+            android:layout_alignRight="@+id/appetizerImage"
+            android:layout_alignEnd="@+id/appetizerImage"
+            android:layout_marginTop="196dp"
+            android:id="@+id/addButton"
+            android:onClick="addMeal"/>
+
     </RelativeLayout>
 
 </ScrollView>
