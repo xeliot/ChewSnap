@@ -5,43 +5,41 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dave Ho on 3/7/2017.
  */
 
-public class MealAdapter extends ArrayAdapter {
-    private static class ViewHolder {
-        private TextView itemView;
+public class MealAdapter extends ArrayAdapter<Meal>{
+    private Context context;
+    private List<Meal> mealList;
+
+
+    public MealAdapter(Context context, int resource, ArrayList<Meal> meals){
+        super(context, resource, meals);
+        this.context = context;
+        this.mealList = meals;
     }
 
-    public MealAdapter(Context context, int textViewResourceId, ArrayList<Meal> items) {
-        super(context, textViewResourceId, items);
-    }
+    public View getView(int position, View convertView, ViewGroup parent){
+        Meal meal = mealList.get(position);
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(MainActivity.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.meal_row, null);
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(this.getContext())
-                    .inflate(R.layout.meal_list_fragment, parent, false);
-            viewHolder = new ViewHolder();
-            viewHolder.itemView = (TextView) convertView.findViewById(R.id.ItemView);
+        TextView title = (TextView) view.findViewById(R.id.mealTitle);
+        TextView description = (TextView) view.findViewById(R.id.mealDescription);
+        RatingBar rating = (RatingBar) view.findViewById(R.id.mealRating);
 
-            convertView.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
-        }
+        title.setText(meal.getTitle());
+        description.setText(meal.getDescription());
+        rating.setRating(meal.getNumStars());
 
-        MyClass item = getItem(position);
-        if (item!= null) {
-            // My layout has only one TextView
-            // do whatever you want with your string and long
-            viewHolder.itemView.setText(String.format("%s %d", item.reason, item.long_val));
-        }
-
-        return convertView;
+        return view;
     }
 }

@@ -6,10 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import java.util.ArrayList;
 
 /**
  * Created by Dave Ho on 3/6/2017.
@@ -18,7 +15,7 @@ import java.util.ArrayList;
 public class MealListFragment extends Fragment {
 
     private ListView mealListView;
-    private MealAdapter<Meal> listAdapter;
+    //private MealAdapter<Meal> listAdapter;
 
     @Nullable
     @Override
@@ -29,7 +26,8 @@ public class MealListFragment extends Fragment {
         //String[] meals = new String[] {"apple", "steak"};
         //ArrayList<String> mealList = new ArrayList<>();
         //mealList.addAll(Arrays.asList(meals));
-        listAdapter = new ArrayAdapter<String>(getActivity(), R.layout.meal_row, superActivity.mealList);
+        superActivity.mealList.add(new Meal("Steak", "This Steak is delicious", 5));
+        MealAdapter listAdapter = new MealAdapter(getActivity(), 0, superActivity.mealList);
         mealListView.setAdapter(listAdapter);
         return view;
     }
