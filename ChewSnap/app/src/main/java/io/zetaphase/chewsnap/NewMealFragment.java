@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by Dave Ho on 3/6/2017.
@@ -19,6 +20,7 @@ public class NewMealFragment extends Fragment {
     }
 
     public void addMeal(){
-
+        TextView title = (TextView) getActivity().findViewById(R.id.nameLabel);
+        TextView description
     }
 }

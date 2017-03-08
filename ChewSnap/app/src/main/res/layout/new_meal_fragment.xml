@@ -49,7 +49,7 @@
             android:layout_alignParentEnd="true" />
 
         <TextView
-            android:text="TextView"
+            android:text="Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/nameLabel"
@@ -97,16 +97,21 @@
             android:layout_alignLeft="@+id/descriptionLabel"
             android:layout_alignStart="@+id/descriptionLabel" />
 
-        <Button
-            android:text="Add"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/mLlayoutBottomButtons"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/appetizerImage"
-            android:layout_alignRight="@+id/appetizerImage"
-            android:layout_alignEnd="@+id/appetizerImage"
-            android:layout_marginTop="196dp"
-            android:id="@+id/addButton"
-            android:onClick="addMeal"/>
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical" >
+
+            <Button
+                android:text="Add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/addButton"
+                android:onClick="addMeal"/>
+        </LinearLayout>
 
     </RelativeLayout>
 
