@@ -7,13 +7,15 @@ package io.zetaphase.chewsnap;
 public class Meal {
     private String title;
     private String description;
+    private int numStars;
     //private Bitmap appetizer;
     //private Bitmap mainCourse;
     //private Bitmap dessert;
 
-    public Meal(String title, String description){
+    public Meal(String title, String description, int numStars){
         this.title = title;
         this.description = description;
+        this.numStars = numStars;
     }
 
     public void setTitle(String title){
@@ -30,6 +32,10 @@ public class Meal {
 
     public String getDescription(){
         return description;
+    }
+
+    public int getNumStars(){
+        return numStars;
     }
 
 }

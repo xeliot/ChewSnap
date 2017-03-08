@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Dave Ho on 3/6/2017.
  */
@@ -16,7 +18,7 @@ import android.widget.ListView;
 public class MealListFragment extends Fragment {
 
     private ListView mealListView;
-    private ArrayAdapter<String> listAdapter;
+    private MealAdapter<Meal> listAdapter;
 
     @Nullable
     @Override
