@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MainActivity extends FragmentActivity {
 
     ViewPager viewpager;
-    ArrayList<String> mealList = new ArrayList<String>();
+    ArrayList<Meal> mealList = new ArrayList<Meal>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
