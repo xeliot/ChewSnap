@@ -21,13 +21,16 @@ public class MealListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //FragmentTransaction ft = getFragmentManager().beginTransaction();
+        //ft.add(this, "mealListView");
+        //ft.commit();
         MainActivity superActivity = (MainActivity) getActivity();
         View view = inflater.inflate(R.layout.meal_list_fragment, container , false);
         mealListView = (ListView) view.findViewById(R.id.mealList);
         //String[] meals = new String[] {"apple", "steak"};
         //ArrayList<String> mealList = new ArrayList<>();
         //mealList.addAll(Arrays.asList(meals));
-        superActivity.mealList.add(new Meal("Steak", "This Steak is delicious", 5));
+        //superActivity.mealList.add(new Meal("Steak", "This Steak is delicious", 5));
         MealAdapter listAdapter = new MealAdapter(getActivity(), 0, superActivity.mealList);
         mealListView.setAdapter(listAdapter);
         return view;
