@@ -19,4 +19,5 @@ public class MainActivity extends FragmentActivity {
         PagerAdapter padapter = new PagerAdapter(getSupportFragmentManager());
         viewpager.setAdapter(padapter);
     }
+
 }

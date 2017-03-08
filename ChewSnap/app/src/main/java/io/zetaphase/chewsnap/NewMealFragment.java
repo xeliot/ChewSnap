@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 /**
@@ -20,7 +21,12 @@ public class NewMealFragment extends Fragment {
     }
 
     public void addMeal(){
-        TextView title = (TextView) getActivity().findViewById(R.id.nameLabel);
-        TextView description
+        TextView title = (TextView) getActivity().findViewById(R.id.mealName);
+        TextView description = (TextView) getActivity().findViewById(R.id.description);
+        RatingBar rating = (RatingBar) getActivity().findViewById(R.id.appetizerRating);
+
+        Meal meal = new Meal((String) title.getText(), (String) description.getText(), (int) rating.getRating());
+        MainActivity superActivity = (MainActivity) getActivity();
+        superActivity.mealList.add(meal);
     }
 }
