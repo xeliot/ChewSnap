@@ -1,4 +1,9 @@
 # ChewSnap
-Chew!!! Built on Android
+#### Chew. Snap. Send. Repeat. 
 
-(c) xeliot 2017. All Rights Reserved.
+Built on Android.
+
+<img src="/Misc/ChewSnapLogo.png" width="200">  
+
+
+&copy; xeliot 2017. All Rights Reserved.
