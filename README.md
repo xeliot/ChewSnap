@@ -6,4 +6,5 @@ Built on Android.
 <img src="/Misc/ChewSnapLogo.png" width="200">  
 
 
-&copy; xeliot 2017. All Rights Reserved.
+&copy; 2017, Xeliot. All Rights Reserved.  
+- Licensed Under GPL V3
