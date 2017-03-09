@@ -47,12 +47,41 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Description"
+        android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/dishDescription"
+        android:text="Description"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="20sp"
-        android:paddingLeft="15dp"/>
+        android:paddingLeft="30dp" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dishRating"
+        android:scaleX="0.8"
+        android:scaleY="0.8"/>
+
+    <LinearLayout
+    android:id="@+id/mLlayoutBottomButtons"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical" >
+
+
+        <Button
+            android:text="Finish Dish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/finishDishButton"
+            android:layout_above="@+id/mLlayoutBottomButtons"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-smallcaps" />
+
+    </LinearLayout>
 
 </LinearLayout>

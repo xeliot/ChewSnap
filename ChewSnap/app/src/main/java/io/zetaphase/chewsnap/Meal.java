@@ -1,5 +1,7 @@
 package io.zetaphase.chewsnap;
 
+import java.util.ArrayList;
+
 /**
  * Created by Dave Ho on 3/7/2017.
  */
@@ -8,6 +10,7 @@ public class Meal {
     private String title;
     private String description;
     private int numStars;
+    private ArrayList<Dish> dishes;
     //private Bitmap appetizer;
     //private Bitmap mainCourse;
     //private Bitmap dessert;
@@ -16,6 +19,7 @@ public class Meal {
         this.title = title;
         this.description = description;
         this.numStars = numStars;
+        dishes = new ArrayList<Dish>();
     }
 
     public void setTitle(String title){
@@ -36,6 +40,14 @@ public class Meal {
 
     public int getNumStars(){
         return numStars;
+    }
+
+    public void addDish(Dish dish){
+        dishes.add(dish);
+    }
+
+    public void removeDish(Dish dish){
+        dishes.remove(dish);
     }
 
 }
