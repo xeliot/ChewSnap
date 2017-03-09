@@ -11,6 +11,7 @@ public class MainActivity extends FragmentActivity {
     ViewPager viewpager;
     public static Meal currentMeal;
     ArrayList<Meal> mealList = new ArrayList<Meal>();
+    ArrayList<Dish> dishList = new ArrayList<Dish>();
     ArrayList<Meal> inboxList = new ArrayList<Meal>();
 
     @Override

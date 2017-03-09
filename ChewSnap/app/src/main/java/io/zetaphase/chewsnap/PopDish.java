@@ -38,6 +38,7 @@ public class PopDish extends Activity{
                 for(Dish d : MainActivity.currentMeal.getDishes()){
                     Log.d("currentMeal", d.getTitle()+":"+d.getDescription());
                 }
+                finish();
             }
         });
     }

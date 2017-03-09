@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 
 /**
  * Created by Dave Ho on 3/6/2017.
@@ -16,6 +17,7 @@ import android.widget.Button;
 public class NewMealFragment extends Fragment{
 
     View view;
+    private ListView dishListView;
     //MainActivity superActivity = (MainActivity) getActivity();
 
 
