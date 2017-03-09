@@ -16,6 +16,8 @@ import android.widget.Button;
 public class NewMealFragment extends Fragment{
 
     View view;
+    //MainActivity superActivity = (MainActivity) getActivity();
+
 
     @Nullable
     @Override
@@ -32,7 +34,9 @@ public class NewMealFragment extends Fragment{
         Button addButton = (Button) view.findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(getActivity(), PopDish.class));
+                Intent popIntent = new Intent(getActivity(), PopDish.class);
+                //popIntent.putExtra("context", );
+                startActivity(popIntent);
             }
         });
         return view;
