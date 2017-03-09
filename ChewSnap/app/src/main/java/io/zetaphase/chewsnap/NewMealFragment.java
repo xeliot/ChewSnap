@@ -20,6 +20,8 @@ public class NewMealFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        MainActivity superActivity = (MainActivity) getActivity();
+        superActivity.currentMeal = new Meal("", "", -1);
         view = inflater.inflate(R.layout.new_meal_fragment, container, false);
         Button finishButton = (Button) view.findViewById(R.id.finishButton);
         finishButton.setOnClickListener(new View.OnClickListener(){
