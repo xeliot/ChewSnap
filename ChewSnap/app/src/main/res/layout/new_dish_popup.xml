@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Dish Name"
+        android:ems="10"
+        android:id="@+id/dishName"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="15dp"/>
+
+
+    <RelativeLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <Button
+            android:text="Add Image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="52dp"
+            android:layout_marginStart="52dp"
+            android:id="@+id/addDishImage"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/dishImage"
+            android:layout_toEndOf="@+id/dishImage" />
+
+        <ImageView
+            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:id="@+id/dishImage"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_width="180dp"
+            android:layout_height="180dp" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Description"
+        android:ems="10"
+        android:id="@+id/dishDescription"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="20sp"
+        android:paddingLeft="15dp"/>
+
+</LinearLayout>
