@@ -10,6 +10,7 @@ public class MainActivity extends FragmentActivity {
 
     ViewPager viewpager;
     ArrayList<Meal> mealList = new ArrayList<Meal>();
+    ArrayList<Meal> inboxList = new ArrayList<Meal>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

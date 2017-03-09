@@ -18,6 +18,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int arg0){
         switch(arg0){
             case 0:
+                //possibly set tags here
                 return new MealListFragment();
             case 1:
                 return new NewMealFragment();
