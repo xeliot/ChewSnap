@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MainActivity extends FragmentActivity {
 
     ViewPager viewpager;
-    Meal currentMeal;
+    public static Meal currentMeal;
     ArrayList<Meal> mealList = new ArrayList<Meal>();
     ArrayList<Meal> inboxList = new ArrayList<Meal>();
 

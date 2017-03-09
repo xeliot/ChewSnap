@@ -50,4 +50,8 @@ public class Meal {
         dishes.remove(dish);
     }
 
+    public ArrayList<Dish> getDishes(){
+        return dishes;
+    }
+
 }
