@@ -23,7 +23,7 @@ public class NewMealFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.new_meal_fragment, container, false);
-        Button button = (Button) view.findViewById(R.id.addButton);
+        Button button = (Button) view.findViewById(R.id.finishButton);
         button.setOnClickListener(this);
         return view;
     }

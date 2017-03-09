@@ -63,40 +63,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <ImageView
-            android:layout_width="200px"
-            app:srcCompat="@android:drawable/ic_menu_gallery"
-            android:id="@+id/appetizerImage"
-            android:layout_height="200px"
-            android:layout_marginTop="51dp"
-            android:layout_below="@+id/description"
-            android:layout_alignRight="@+id/description"
-            android:layout_alignEnd="@+id/description" />
-
-        <RatingBar
-            android:layout_height="wrap_content"
-            android:id="@+id/appetizerRating"
-            android:layout_width="wrap_content"
-            style="@style/Widget.AppCompat.RatingBar"
-            android:isIndicator="false"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
-            android:layout_marginTop="21dp"
-            android:layout_alignTop="@+id/appetizerImage"
-            android:layout_alignRight="@+id/appetizerImage"
-            android:layout_alignEnd="@+id/appetizerImage"
-            android:layout_marginRight="34dp"
-            android:layout_marginEnd="34dp" />
-
-        <Button
-            android:text="Add Appetizer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/appetizer"
-            android:layout_alignTop="@+id/appetizerRating"
-            android:layout_alignLeft="@+id/descriptionLabel"
-            android:layout_alignStart="@+id/descriptionLabel" />
-
         <LinearLayout
             android:id="@+id/mLlayoutBottomButtons"
             android:layout_width="fill_parent"
@@ -104,17 +70,40 @@
             android:layout_alignParentBottom="true"
             android:orientation="vertical" >
 
+
+            <Button
+                android:text="Finish Meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/finishButton"
+                android:layout_above="@+id/mLlayoutBottomButtons"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
         </LinearLayout>
 
-        <Button
-            android:text="Add"
+        <ListView
+            android:id="@+id/dishList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/addButton"
-            android:layout_above="@+id/mLlayoutBottomButtons"
+            android:headerDividersEnabled="false"
+            android:background="#4FFF"
+            android:layout_marginTop="65dp"
+            android:layout_below="@+id/description"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_height="300dp"
+            android:footerDividersEnabled="false" />
+
+        <Button
+            android:text="Add Dish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:layout_alignLeft="@+id/descriptionLabel"
+            android:layout_alignStart="@+id/descriptionLabel"
+            android:id="@+id/addButton"
+            android:fontFamily="sans-serif-smallcaps" />
 
     </RelativeLayout>
 
