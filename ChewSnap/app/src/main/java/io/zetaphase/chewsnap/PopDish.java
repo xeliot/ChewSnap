@@ -3,7 +3,6 @@ package io.zetaphase.chewsnap;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
@@ -35,9 +34,14 @@ public class PopDish extends Activity{
                 RatingBar rating = (RatingBar) findViewById(R.id.dishRating);
                 Dish dish = new Dish(title.getText().toString(), description.getText().toString(), (int) rating.getRating());
                 MainActivity.currentMeal.addDish(dish);
-                for(Dish d : MainActivity.currentMeal.getDishes()){
-                    Log.d("currentMeal", d.getTitle()+":"+d.getDescription());
-                }
+                MainActivity.dishList.add(dish);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainActivity.dishAdapter.updateDishList(MainActivity.dishList);
+                        MainActivity.dishAdapter.notifyDataSetChanged();
+                    }
+                });
                 finish();
             }
         });

@@ -41,6 +41,10 @@ public class NewMealFragment extends Fragment{
                 startActivity(popIntent);
             }
         });
+        dishListView = (ListView) view.findViewById(R.id.dishList);
+        MainActivity.dishAdapter = new DishAdapter(getActivity(), 0, superActivity.dishList);
+        //Log.d("dishadapterget", MainActivity.dishAdapter.getDishList().get(0).getTitle().toString());
+        dishListView.setAdapter(MainActivity.dishAdapter);
         return view;
     }
 
