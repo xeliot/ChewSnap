@@ -64,25 +64,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <LinearLayout
-            android:id="@+id/mLlayoutBottomButtons"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical" >
-
-
-            <Button
-                android:text="Finish Meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/finishButton"
-                android:layout_above="@+id/mLlayoutBottomButtons"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-        </LinearLayout>
 
         <ListView
             android:id="@+id/dishList"
@@ -93,8 +74,8 @@
             android:layout_below="@+id/description"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_height="300dp"
-            android:footerDividersEnabled="false" />
+            android:footerDividersEnabled="false"
+            android:layout_height="300dp" />
 
         <Button
             android:text="Add Dish"
@@ -105,6 +86,17 @@
             android:layout_alignStart="@+id/descriptionLabel"
             android:id="@+id/addButton"
             android:fontFamily="sans-serif-smallcaps" />
+
+        <Button
+            android:text="Finish Meal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+                android:id="@+id/finishButton"
+            android:layout_marginTop="74dp"
+            android:layout_below="@+id/dishList"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 
