@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
                 android:id="@+id/finishButton"
-            android:layout_marginTop="74dp"
+            android:layout_marginTop="81dp"
             android:layout_below="@+id/dishList"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
