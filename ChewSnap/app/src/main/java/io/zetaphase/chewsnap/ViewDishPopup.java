@@ -27,7 +27,7 @@ public class ViewDishPopup extends Activity{
         getWindow().setLayout((int) (width*0.8), (int) (height*0.8));
 
         Intent intent = getIntent();
-        int clickedPosition = Integer.valueOf(intent.getStringExtra("CLICKEDPOSITION"));
+        int clickedPosition = Integer.valueOf(intent.getStringExtra("CLICKPOSITION"));
 
         Dish dish = MainActivity.dishList.get(clickedPosition);
 
@@ -39,6 +39,6 @@ public class ViewDishPopup extends Activity{
         description.setText(dish.getDescription());
         ratingBar.setRating(dish.getRating());
 
-        
+
     }
 }
