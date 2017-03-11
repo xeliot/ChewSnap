@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -37,13 +38,18 @@ public class NewMealFragment extends Fragment{
         addButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent popIntent = new Intent(getActivity(), PopDish.class);
-                //popIntent.putExtra("context", );
                 startActivity(popIntent);
+            }
+        });
+        dishListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ViewDishPopup.class);
+                startActivity(intent);
             }
         });
         dishListView = (ListView) view.findViewById(R.id.dishList);
         MainActivity.dishAdapter = new DishAdapter(getActivity(), 0, superActivity.dishList);
-        //Log.d("dishadapterget", MainActivity.dishAdapter.getDishList().get(0).getTitle().toString());
         dishListView.setAdapter(MainActivity.dishAdapter);
         return view;
     }
