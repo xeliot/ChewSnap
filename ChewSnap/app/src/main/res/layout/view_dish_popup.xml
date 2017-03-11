@@ -40,7 +40,7 @@
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
+        android:id="@+id/viewDishRating"
         android:layout_gravity="center"/>
 
 
