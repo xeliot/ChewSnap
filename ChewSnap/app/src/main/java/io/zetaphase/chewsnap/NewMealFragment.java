@@ -48,6 +48,7 @@ public class NewMealFragment extends Fragment{
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Log.d("CLICKPOSITION", ""+position);
                 Intent intent = new Intent(getActivity(), ViewDishPopup.class);
+                intent.putExtra("CLICKPOSITION", ""+position);
                 startActivity(intent);
             }
         });
