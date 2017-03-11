@@ -17,6 +17,8 @@
         </activity>
         <activity android:name=".PopDish"
             android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity android:name=".ViewDishPopup"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 
 </manifest>
