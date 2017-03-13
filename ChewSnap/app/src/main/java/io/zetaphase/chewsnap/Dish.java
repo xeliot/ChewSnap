@@ -1,11 +1,13 @@
 package io.zetaphase.chewsnap;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Dave Ho on 3/8/2017.
  */
 
 public class Dish {
-    //private bitmap image;
+    private Bitmap image;
     private String title;
     private String description;
     private int rating;
@@ -26,5 +28,13 @@ public class Dish {
 
     public int getRating(){
         return rating;
+    }
+
+    public void setBitmap(Bitmap image){
+        this.image = image;
+    }
+
+    public Bitmap getBitmap(){
+        return this.image;
     }
 }

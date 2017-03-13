@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -34,10 +35,12 @@ public class ViewDishPopup extends Activity{
         TextView title = (TextView) findViewById(R.id.viewDishTitle);
         TextView description = (TextView) findViewById(R.id.viewDishDescription);
         RatingBar ratingBar = (RatingBar) findViewById(R.id.viewDishRating);
+        ImageView image = (ImageView) findViewById(R.id.viewDishImage);
 
         title.setText(dish.getTitle());
         description.setText(dish.getDescription());
         ratingBar.setRating(dish.getRating());
+        image.setImageBitmap(dish.getBitmap());
 
 
     }

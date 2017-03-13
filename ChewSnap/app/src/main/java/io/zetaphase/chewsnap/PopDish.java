@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -55,7 +56,10 @@ public class PopDish extends Activity{
                 TextView title = (TextView) findViewById(R.id.dishName);
                 TextView description = (TextView) findViewById(R.id.dishDescription);
                 RatingBar rating = (RatingBar) findViewById(R.id.dishRating);
+                ImageView image = (ImageView) findViewById(R.id.dishImage);
+                Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
                 Dish dish = new Dish(title.getText().toString(), description.getText().toString(), (int) rating.getRating());
+                dish.setBitmap(bitmap);
                 MainActivity.dishList.add(dish);
                 runOnUiThread(new Runnable() {
                     @Override
