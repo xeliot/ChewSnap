@@ -15,10 +15,10 @@ public class Meal {
     //private Bitmap mainCourse;
     //private Bitmap dessert;
 
-    public Meal(String title, String description, int numStars){
+    public Meal(String title, String description){
         this.title = title;
         this.description = description;
-        this.numStars = numStars;
+        this.numStars = 0;
         dishes = new ArrayList<Dish>();
     }
 
@@ -40,6 +40,14 @@ public class Meal {
 
     public int getNumStars(){
         return numStars;
+    }
+
+    public void setNumStars(int numStars){
+        this.numStars = numStars;
+    }
+
+    public void setDishes(ArrayList<Dish> dishes){
+        this.dishes = dishes;
     }
 
     public void addDish(Dish dish){

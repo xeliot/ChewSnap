@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 /**
  * Created by Dave Ho on 3/6/2017.
@@ -58,16 +60,15 @@ public class NewMealFragment extends Fragment{
     }
 
     public void addMeal(){
-        /*
+
         TextView title = (TextView) getActivity().findViewById(R.id.mealName);
         TextView description = (TextView) getActivity().findViewById(R.id.description);
-        RatingBar rating = (RatingBar) getActivity().findViewById(R.id.appetizerRating);
 
-        Meal meal = new Meal(title.getText().toString(), description.getText().toString(), (int) rating.getRating());
+        Meal meal = new Meal(title.getText().toString(), description.getText().toString(), MainActivity.dishList);
         MainActivity superActivity = (MainActivity) getActivity();
         superActivity.mealList.add(meal);
         Log.d("addMEAL", ""+getFragmentManager().findFragmentByTag("MealListFragment"));
-        */
+
     }
 
 }
