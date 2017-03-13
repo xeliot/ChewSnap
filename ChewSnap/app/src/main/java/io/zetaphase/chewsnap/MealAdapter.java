@@ -42,4 +42,12 @@ public class MealAdapter extends ArrayAdapter<Meal>{
 
         return view;
     }
+
+    public List<Meal> getMealList(){
+        return mealList;
+    }
+
+    public void updateMealList(ArrayList<Meal> mealList){
+        this.mealList = mealList;
+    }
 }
