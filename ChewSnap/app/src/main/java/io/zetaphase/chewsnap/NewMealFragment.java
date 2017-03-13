@@ -72,6 +72,8 @@ public class NewMealFragment extends Fragment{
         meal.setNumStars((int) averageRating);
         MainActivity superActivity = (MainActivity) getActivity();
         superActivity.mealList.add(meal);
+        MainActivity.mealAdapter.updateMealList(superActivity.mealList);
+        MainActivity.mealAdapter.notifyDataSetChanged();
         Log.d("addMEAL", ""+superActivity.mealList.get(0).getTitle());
 
     }
