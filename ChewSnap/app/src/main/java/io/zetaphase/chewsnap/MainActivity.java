@@ -13,6 +13,7 @@ public class MainActivity extends FragmentActivity {
     public static ArrayList<Dish> dishList = new ArrayList<Dish>();
     ArrayList<Meal> inboxList = new ArrayList<Meal>();
     public static DishAdapter dishAdapter;
+    public static MealAdapter mealAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

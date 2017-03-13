@@ -30,8 +30,8 @@ public class MealListFragment extends Fragment {
         //ArrayList<String> mealList = new ArrayList<>();
         //mealList.addAll(Arrays.asList(meals));
         //superActivity.mealList.add(new Meal("Steak", "This Steak is delicious", 5));
-        MealAdapter listAdapter = new MealAdapter(getActivity(), 0, superActivity.mealList);
-        mealListView.setAdapter(listAdapter);
+        MainActivity.mealAdapter = new MealAdapter(getActivity(), 0, superActivity.mealList);
+        mealListView.setAdapter(MainActivity.mealAdapter);
         return view;
     }
 
