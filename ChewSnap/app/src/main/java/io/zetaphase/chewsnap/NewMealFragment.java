@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 /**
@@ -29,7 +28,6 @@ public class NewMealFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         MainActivity superActivity = (MainActivity) getActivity();
-        superActivity.currentMeal = new Meal("", "", -1);
         view = inflater.inflate(R.layout.new_meal_fragment, container, false);
         Button finishButton = (Button) view.findViewById(R.id.finishButton);
         finishButton.setOnClickListener(new View.OnClickListener(){
@@ -64,10 +62,17 @@ public class NewMealFragment extends Fragment{
         TextView title = (TextView) getActivity().findViewById(R.id.mealName);
         TextView description = (TextView) getActivity().findViewById(R.id.description);
 
-        Meal meal = new Meal(title.getText().toString(), description.getText().toString(), MainActivity.dishList);
+        Meal meal = new Meal(title.getText().toString(), description.getText().toString());
+        meal.setDishes(MainActivity.dishList);
+        double averageRating = 0;
+        for(Dish dish : MainActivity.dishList){
+            averageRating += dish.getRating();
+        }
+        averageRating = (averageRating*1.0)/MainActivity.dishList.size();
+        meal.setNumStars((int) averageRating);
         MainActivity superActivity = (MainActivity) getActivity();
         superActivity.mealList.add(meal);
-        Log.d("addMEAL", ""+getFragmentManager().findFragmentByTag("MealListFragment"));
+        Log.d("addMEAL", ""+superActivity.mealList.get(1).getTitle());
 
     }
 

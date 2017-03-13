@@ -33,7 +33,6 @@ public class PopDish extends Activity{
                 TextView description = (TextView) findViewById(R.id.dishDescription);
                 RatingBar rating = (RatingBar) findViewById(R.id.dishRating);
                 Dish dish = new Dish(title.getText().toString(), description.getText().toString(), (int) rating.getRating());
-                MainActivity.currentMeal.addDish(dish);
                 MainActivity.dishList.add(dish);
                 runOnUiThread(new Runnable() {
                     @Override
