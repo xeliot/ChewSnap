@@ -92,22 +92,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/finishButton"
-            android:layout_marginTop="81dp"
+            android:layout_marginTop="90dp"
             android:layout_below="@+id/dishList"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:layout_alignBottom="@+id/finishButton"
-            android:layout_marginBottom="40dp"
-            android:id="@+id/restaurantName"
-            android:fontFamily="sans-serif-smallcaps"
-            android:hint="Enter Restaurant Name"
-            android:layout_marginLeft="23dp"/>
 
         <TextView
             android:text="Restaurant Name"
@@ -117,9 +105,24 @@
             android:textSize="22sp"
             android:fontFamily="sans-serif-smallcaps"
             android:layout_above="@+id/restaurantName"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="23dp"/>
+            android:layout_alignLeft="@+id/restaurantName"
+            android:layout_alignStart="@+id/restaurantName"
+            android:layout_marginBottom="8dp"
+            android:paddingLeft="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginBottom="43dp"
+            android:id="@+id/restaurantName"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="Enter Restaurant Name"
+            android:layout_alignBottom="@+id/finishButton"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingLeft="10dp"/>
 
     </RelativeLayout>
 

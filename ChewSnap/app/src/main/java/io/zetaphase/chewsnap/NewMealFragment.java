@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Dave Ho on 3/6/2017.
@@ -32,7 +33,11 @@ public class NewMealFragment extends Fragment{
         Button finishButton = (Button) view.findViewById(R.id.finishButton);
         finishButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                addMeal();
+                if (MainActivity.dishList.isEmpty()){
+                    Toast.makeText(getActivity(), "Please add some dishes.", Toast.LENGTH_LONG).show();
+                }else{
+                    addMeal();
+                }
             }
         });
         Button addButton = (Button) view.findViewById(R.id.addButton);

@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -46,7 +47,7 @@ public class PopDish extends Activity{
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int) (width*0.8), (int) (height*0.8));
+        getWindow().setLayout((int) (width*0.9), (int) (height*0.9));
 
         Button finishDishButton = (Button) findViewById(R.id.finishDishButton);
         Button addImageButton = (Button) findViewById(R.id.addDishImage);
@@ -57,7 +58,13 @@ public class PopDish extends Activity{
                 TextView description = (TextView) findViewById(R.id.dishDescription);
                 RatingBar rating = (RatingBar) findViewById(R.id.dishRating);
                 ImageView image = (ImageView) findViewById(R.id.dishImage);
-                Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+                Bitmap bitmap = null;
+                try{
+                    bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+                }catch(java.lang.NullPointerException e){
+                    Toast.makeText(PopDish.this, "Please select an image.", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Dish dish = new Dish(title.getText().toString(), description.getText().toString(), (int) rating.getRating());
                 dish.setBitmap(bitmap);
                 MainActivity.dishList.add(dish);

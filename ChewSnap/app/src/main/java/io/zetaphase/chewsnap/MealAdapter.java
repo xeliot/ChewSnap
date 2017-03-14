@@ -50,4 +50,5 @@ public class MealAdapter extends ArrayAdapter<Meal>{
     public void updateMealList(ArrayList<Meal> mealList){
         this.mealList = mealList;
     }
+
 }
