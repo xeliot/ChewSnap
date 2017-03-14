@@ -9,17 +9,35 @@
         android:text="Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/popUpTitle"
+        android:id="@+id/viewMealTitle"
         android:fontFamily="sans-serif-smallcaps"
-        android:textSize="26sp" />
+        android:textSize="35sp"
+        android:textAlignment="center" />
 
     <TextView
         android:text="Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/popUpDescription"
+        android:id="@+id/viewMealDescription"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewMealLocation"
+        android:fontFamily="sans-serif-smallcaps"
         android:textSize="20sp"
-        android:fontFamily="sans-serif-smallcaps" />
+        android:textAlignment="center" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewMealRating"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        android:layout_gravity="center"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +46,6 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
     </RelativeLayout>
