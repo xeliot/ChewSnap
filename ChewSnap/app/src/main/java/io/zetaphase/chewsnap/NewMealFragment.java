@@ -79,6 +79,8 @@ public class NewMealFragment extends Fragment{
         }
         averageRating = (averageRating*1.0)/MainActivity.dishList.size();
         meal.setNumStars((int) averageRating);
+        int randInt = (int)(Math.random()*MainActivity.dishList.size());
+        meal.setBitmap(MainActivity.dishList.get(randInt).getBitmap());
         MainActivity superActivity = (MainActivity) getActivity();
         superActivity.mealList.add(meal);
         MainActivity.mealAdapter.updateMealList(superActivity.mealList);

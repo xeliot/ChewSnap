@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -35,10 +36,12 @@ public class MealAdapter extends ArrayAdapter<Meal>{
         TextView title = (TextView) view.findViewById(R.id.mealTitle);
         TextView description = (TextView) view.findViewById(R.id.mealDescription);
         RatingBar rating = (RatingBar) view.findViewById(R.id.mealRating);
+        ImageView image = (ImageView) view.findViewById(R.id.mealImage);
 
         title.setText(meal.getTitle());
         description.setText(meal.getDescription());
         rating.setRating(meal.getNumStars());
+        image.setImageBitmap(meal.getBitmap());
 
         return view;
     }

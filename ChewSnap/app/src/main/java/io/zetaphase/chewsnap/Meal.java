@@ -1,5 +1,7 @@
 package io.zetaphase.chewsnap;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 
 /**
@@ -11,9 +13,7 @@ public class Meal {
     private String description;
     private int numStars;
     private ArrayList<Dish> dishes;
-    //private Bitmap appetizer;
-    //private Bitmap mainCourse;
-    //private Bitmap dessert;
+    private Bitmap image;
 
     public Meal(String title, String description){
         this.title = title;
@@ -62,4 +62,11 @@ public class Meal {
         return dishes;
     }
 
+    public void setBitmap(Bitmap image){
+        this.image = image;
+    }
+
+    public Bitmap getBitmap(){
+        return this.image;
+    }
 }
