@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/swiperefresh"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lightbluepinkfade">
+    android:background="@drawable/marblefade"
+    android:orientation="horizontal">
 
-    <ListView
-        android:id="@+id/inboxList"
+    <TextView
+        android:text="Inbox"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:id="@+id/inboxLabel"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="5dp"/>
 
-</android.support.v4.widget.SwipeRefreshLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/inboxSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/lightbluepinkfade"
+        android:layout_below="@+id/inboxLabel">
+
+        <ListView
+            android:id="@+id/inboxList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

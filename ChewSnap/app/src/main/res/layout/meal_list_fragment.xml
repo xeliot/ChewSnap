@@ -14,7 +14,8 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="28sp"
         android:textColor="@color/white"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/colorPrimary"
+        android:paddingLeft="5dp"/>
 
     <ListView
         android:id="@+id/mealList"
