@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,8 +33,14 @@ public class DishAdapter extends ArrayAdapter<Dish>{
         View view = inflater.inflate(R.layout.dish_row, null);
 
         TextView title = (TextView) view.findViewById(R.id.dishRowName);
+        TextView description = (TextView) view.findViewById(R.id.dishRowDescription);
+        TextView location = (TextView) view.findViewById(R.id.dishRowLocation);
+        ImageView image = (ImageView) view.findViewById(R.id.dishRowImage);
+        RatingBar rating = (RatingBar) view.findViewById(R.id.dishRowRating);
 
         title.setText(dish.getTitle());
+        description.setText(dish.getDescription());
+        location.setText();
 
         return view;
     }

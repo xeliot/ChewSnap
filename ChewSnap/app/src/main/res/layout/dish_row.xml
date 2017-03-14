@@ -1,17 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/dishRowImage"
+        android:contentDescription="Property Image"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/mealRating"
+        android:layout_alignStart="@+id/mealRating"
+        android:layout_width="140dp"
+        android:layout_height="140dp" />
+
     <TextView
         android:text="Dish Name"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dishRowName"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:fontFamily="sans-serif-smallcaps"
         android:paddingLeft="15dp"
         android:paddingTop="15dp"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="270dp" />
 
-</LinearLayout>
+    <TextView
+        android:text="Description"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/dishRowDescription"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="20sp"
+        android:layout_below="@+id/dishRowName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="15dp"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dishRowImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/dishRowRating"
+        style="@style/Widget.AppCompat.RatingBar.Indicator" />
+
+</RelativeLayout>

@@ -37,4 +37,5 @@ public class Dish {
     public Bitmap getBitmap(){
         return this.image;
     }
+
 }

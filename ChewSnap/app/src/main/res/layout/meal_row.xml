@@ -1,60 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Dish Name"
+        android:layout_height="wrap_content"
+        android:id="@+id/mealTitle"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="270dp" />
+
+    <ImageView
+        android:id="@+id/mealImage"
+        android:contentDescription="Property Image"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
         android:id="@+id/mealRating"
         style="@style/Widget.AppCompat.RatingBar.Indicator"
         android:layout_below="@+id/mealImage"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
+        android:layout_alignParentStart="true" />
 
-    <LinearLayout
-        android:id="@+id/infoSection"
-        android:layout_width="match_parent"
+    <TextView
+        android:text="Description"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/mealImage"
-        android:layout_toRightOf="@+id/mealImage">
-
-        <TextView
-            android:id="@+id/mealTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Meal Title"
-            android:textSize="18sp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="10dp"/>
-
-        <TextView
-            android:id="@+id/mealDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Description"
-            android:textSize="15sp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="10dp"/>
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/mealImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:contentDescription="Property Image"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/mealRating"
-        android:layout_alignStart="@+id/mealRating" />
+        android:id="@+id/mealDescription"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="20sp"
+        android:paddingLeft="15dp"
+        android:layout_below="@+id/mealTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
