@@ -63,61 +63,60 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Add Dish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/description"
-        android:layout_alignLeft="@+id/descriptionLabel"
-        android:layout_alignStart="@+id/descriptionLabel"
-        android:id="@+id/addButton"
-        android:fontFamily="sans-serif-smallcaps" />
-
-    <ListView
-        android:id="@+id/dishList"
-        android:layout_width="match_parent"
-        android:headerDividersEnabled="false"
-        android:background="#4FFF"
-        android:layout_marginTop="65dp"
-        android:layout_below="@+id/description"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:footerDividersEnabled="false"
-        android:layout_height="300dp" />
-
-    <TextView
-        android:text="Restaurant Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/restaurantNameLabel"
-        android:textSize="22sp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:layout_above="@+id/restaurantName"
-        android:layout_alignLeft="@+id/restaurantName"
-        android:layout_alignStart="@+id/restaurantName"
-        android:layout_marginBottom="8dp"
-        android:paddingLeft="10dp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginBottom="43dp"
-        android:id="@+id/restaurantName"
-        android:fontFamily="sans-serif-smallcaps"
-        android:hint="Enter Restaurant Name"
-        android:layout_alignBottom="@+id/finishButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:paddingLeft="10dp"/>
-
-    <Button
         android:text="Finish Meal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:id="@+id/finishButton"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Restaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/restaurantNameLabel"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="10dp"
+        android:layout_alignBaseline="@+id/restaurantName"
+        android:layout_alignBottom="@+id/restaurantName"
+        android:layout_alignRight="@+id/descriptionLabel"
+        android:layout_alignEnd="@+id/descriptionLabel" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/restaurantName"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="enter restaurant name"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/description"
+        android:layout_alignLeft="@+id/description"
+        android:layout_alignStart="@+id/description" />
+
+    <Button
+        android:text="Add Dish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addButton"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/restaurantName"
+        android:layout_alignLeft="@+id/descriptionLabel"
+        android:layout_alignStart="@+id/descriptionLabel" />
+
+    <ListView
+        android:id="@+id/dishList"
+        android:layout_width="match_parent"
+        android:headerDividersEnabled="false"
+        android:background="#4FFF"
+        android:footerDividersEnabled="false"
+        android:layout_height="300dp"
+        android:layout_above="@+id/finishButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
