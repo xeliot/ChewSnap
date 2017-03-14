@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by Dave Ho on 3/6/2017.
  */
@@ -37,6 +39,8 @@ public class NewMealFragment extends Fragment{
                     Toast.makeText(getActivity(), "Please add some dishes.", Toast.LENGTH_LONG).show();
                 }else{
                     addMeal();
+                    resetFragment();
+                    Toast.makeText(getActivity(), "New Meal has been added!", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -80,6 +84,20 @@ public class NewMealFragment extends Fragment{
         MainActivity.mealAdapter.updateMealList(superActivity.mealList);
         MainActivity.mealAdapter.notifyDataSetChanged();
         Log.d("addMEAL", ""+superActivity.mealList.get(0).getTitle());
+
+    }
+
+    public void resetFragment(){
+        MainActivity.dishList = new ArrayList<Dish>();
+        MainActivity superActivity = (MainActivity) getActivity();
+        MainActivity.dishAdapter = new DishAdapter(getActivity(), 0, superActivity.dishList);
+        dishListView.setAdapter(MainActivity.dishAdapter);
+        TextView title = (TextView) getActivity().findViewById(R.id.mealName);
+        TextView description = (TextView) getActivity().findViewById(R.id.description);
+        TextView restaurant = (TextView) getActivity().findViewById(R.id.restaurantName);
+        title.setText("");
+        description.setText("");
+        restaurant.setText("");
 
     }
 
