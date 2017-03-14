@@ -1,129 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:layout_height="fill_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent" android:layout_height="match_parent"
-        android:background="@drawable/bg"
-        android:id="@+id/newMealRelativeLayout">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:id="@+id/newMealRelativeLayout">
 
-        <TextView
-            android:text="Description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/descriptionLabel"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textSize="22sp"
-            android:layout_below="@+id/mealName"
-            android:layout_alignLeft="@+id/nameLabel"
-            android:layout_alignStart="@+id/nameLabel"
-            android:layout_marginTop="11dp" />
+    <TextView
+        android:text="Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/descriptionLabel"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="22sp"
+        android:layout_below="@+id/mealName"
+        android:layout_alignLeft="@+id/nameLabel"
+        android:layout_alignStart="@+id/nameLabel"
+        android:layout_marginTop="11dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/description"
-            android:layout_alignBaseline="@+id/descriptionLabel"
-            android:layout_alignBottom="@+id/descriptionLabel"
-            android:layout_alignRight="@+id/mealName"
-            android:layout_alignEnd="@+id/mealName"
-            android:fontFamily="sans-serif-smallcaps"
-            android:hint="elaborate" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/description"
+        android:layout_alignBaseline="@+id/descriptionLabel"
+        android:layout_alignBottom="@+id/descriptionLabel"
+        android:layout_alignRight="@+id/mealName"
+        android:layout_alignEnd="@+id/mealName"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="elaborate" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/mealName"
-            android:fontFamily="sans-serif-smallcaps"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:hint="Enter Name" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/mealName"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="Enter Name" />
 
-        <TextView
-            android:text="Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/nameLabel"
-            tools:text="Meal Name"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textSize="22sp"
-            android:layout_marginLeft="23dp"
-            android:layout_marginStart="23dp"
-            android:layout_alignBaseline="@+id/mealName"
-            android:layout_alignBottom="@+id/mealName"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+    <TextView
+        android:text="Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameLabel"
+        tools:text="Meal Name"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="22sp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_alignBaseline="@+id/mealName"
+        android:layout_alignBottom="@+id/mealName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-        <Button
-            android:text="Add Dish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/description"
-            android:layout_alignLeft="@+id/descriptionLabel"
-            android:layout_alignStart="@+id/descriptionLabel"
-            android:id="@+id/addButton"
-            android:fontFamily="sans-serif-smallcaps" />
+    <Button
+        android:text="Add Dish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:layout_alignLeft="@+id/descriptionLabel"
+        android:layout_alignStart="@+id/descriptionLabel"
+        android:id="@+id/addButton"
+        android:fontFamily="sans-serif-smallcaps" />
 
-        <ListView
-            android:id="@+id/dishList"
-            android:layout_width="match_parent"
-            android:headerDividersEnabled="false"
-            android:background="#4FFF"
-            android:layout_marginTop="65dp"
-            android:layout_below="@+id/description"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:footerDividersEnabled="false"
-            android:layout_height="300dp" />
+    <ListView
+        android:id="@+id/dishList"
+        android:layout_width="match_parent"
+        android:headerDividersEnabled="false"
+        android:background="#4FFF"
+        android:layout_marginTop="65dp"
+        android:layout_below="@+id/description"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:footerDividersEnabled="false"
+        android:layout_height="300dp" />
 
-        <Button
-            android:text="Finish Meal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/finishButton"
-            android:layout_marginTop="90dp"
-            android:layout_below="@+id/dishList"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+    <TextView
+        android:text="Restaurant Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/restaurantNameLabel"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_above="@+id/restaurantName"
+        android:layout_alignLeft="@+id/restaurantName"
+        android:layout_alignStart="@+id/restaurantName"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="10dp"/>
 
-        <TextView
-            android:text="Restaurant Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/restaurantNameLabel"
-            android:textSize="22sp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:layout_above="@+id/restaurantName"
-            android:layout_alignLeft="@+id/restaurantName"
-            android:layout_alignStart="@+id/restaurantName"
-            android:layout_marginBottom="8dp"
-            android:paddingLeft="10dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginBottom="43dp"
+        android:id="@+id/restaurantName"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Enter Restaurant Name"
+        android:layout_alignBottom="@+id/finishButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="10dp"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:layout_marginBottom="43dp"
-            android:id="@+id/restaurantName"
-            android:fontFamily="sans-serif-smallcaps"
-            android:hint="Enter Restaurant Name"
-            android:layout_alignBottom="@+id/finishButton"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:paddingLeft="10dp"/>
+    <Button
+        android:text="Finish Meal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/finishButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    </RelativeLayout>
+</RelativeLayout>
 
-</ScrollView>
