@@ -34,13 +34,13 @@ public class DishAdapter extends ArrayAdapter<Dish>{
 
         TextView title = (TextView) view.findViewById(R.id.dishRowName);
         TextView description = (TextView) view.findViewById(R.id.dishRowDescription);
-        TextView location = (TextView) view.findViewById(R.id.dishRowLocation);
         ImageView image = (ImageView) view.findViewById(R.id.dishRowImage);
         RatingBar rating = (RatingBar) view.findViewById(R.id.dishRowRating);
 
         title.setText(dish.getTitle());
         description.setText(dish.getDescription());
-        location.setText();
+        image.setImageBitmap(dish.getBitmap());
+        rating.setRating(dish.getRating());
 
         return view;
     }
