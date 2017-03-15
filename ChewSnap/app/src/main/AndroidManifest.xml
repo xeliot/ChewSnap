@@ -26,6 +26,8 @@
             android:theme="@style/AppTheme.CustomTheme"></activity>
         <activity android:name=".ViewDishPopup"
             android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity android:name=".ViewMealPopup"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 
 </manifest>
