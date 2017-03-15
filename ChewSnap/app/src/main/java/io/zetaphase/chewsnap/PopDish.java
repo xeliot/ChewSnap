@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
+import android.text.format.Time;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -19,10 +22,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -31,7 +31,7 @@ import java.io.IOException;
 public class PopDish extends Activity{
 
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
-    private Button btnSelect;
+    private Uri mHighQualityImageUri = null;
     private ImageView dishImage;
     private String userChoosenTask;
 
@@ -142,8 +142,45 @@ public class PopDish extends Activity{
 
     private void cameraIntent()
     {
+        mHighQualityImageUri = generateTimeStampPhotoFileUri();
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, mHighQualityImageUri);
         startActivityForResult(intent, REQUEST_CAMERA);
+    }
+
+    private Uri generateTimeStampPhotoFileUri() {
+
+        Uri photoFileUri = null;
+        File outputDir = getPhotoDirectory();
+        if (outputDir != null) {
+            Time t = new Time();
+            t.setToNow();
+            File photoFile = new File(outputDir, System.currentTimeMillis()
+                    + ".jpg");
+            //photoFileUri = Uri.fromFile(photoFile);
+            photoFileUri = FileProvider.getUriForFile(this, this.getApplicationContext().getPackageName() + ".provider", photoFile);
+        }
+        return photoFileUri;
+    }
+
+    private File getPhotoDirectory() {
+        File outputDir = null;
+        String externalStorageStagte = Environment.getExternalStorageState();
+        if (externalStorageStagte.equals(Environment.MEDIA_MOUNTED)) {
+            File photoDir = Environment
+                    .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            outputDir = new File(photoDir, getString(R.string.app_name));
+            if (!outputDir.exists())
+                if (!outputDir.mkdirs()) {
+                    Toast.makeText(
+                            this,
+                            "Failed to create directory "
+                                    + outputDir.getAbsolutePath(),
+                            Toast.LENGTH_SHORT).show();
+                    outputDir = null;
+                }
+        }
+        return outputDir;
     }
 
     @Override
@@ -159,6 +196,7 @@ public class PopDish extends Activity{
     }
 
     private void onCaptureImageResult(Intent data) {
+        /*
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
@@ -177,8 +215,9 @@ public class PopDish extends Activity{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        dishImage.setImageBitmap(thumbnail);
+        */
+        //dishImage.setImageBitmap(thumbnail);
+        dishImage.setImageURI(mHighQualityImageUri);
     }
 
     @SuppressWarnings("deprecation")
