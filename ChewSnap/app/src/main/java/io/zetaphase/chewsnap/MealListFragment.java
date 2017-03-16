@@ -1,5 +1,7 @@
 package io.zetaphase.chewsnap;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,6 +36,29 @@ public class MealListFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), ViewMealPopup.class);
                 intent.putExtra("CLICKPOSITION", ""+position);
                 startActivity(intent);
+            }
+        });
+        mealListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                final CharSequence[] items = { "Delete", "Share", "Cancel" };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(MainActivity.mealList.get(pos).getTitle().toUpperCase());
+                final int position = pos;
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        if (items[item].equals("Delete")) {
+                            MainActivity.mealList.remove(position);
+                            MainActivity.mealAdapter.updateMealList(MainActivity.mealList);
+                            MainActivity.mealAdapter.notifyDataSetChanged();
+                        }
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
+                return true;
             }
         });
         //String[] meals = new String[] {"apple", "steak"};
