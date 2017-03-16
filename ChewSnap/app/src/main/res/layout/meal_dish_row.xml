@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mealDishTitle"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/mealDishImage"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_toLeftOf="@+id/mealTitle"
+        android:layout_toStartOf="@+id/mealTitle" />
+
+    <TextView
+        android:text="Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mealDishDescription"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textAlignment="center" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mealDishRating"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -61,6 +62,10 @@ public class PopDish extends Activity{
                 Bitmap bitmap = null;
                 try{
                     bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+                    Matrix matrix = new Matrix();
+                    matrix.postRotate(90);
+                    Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+                    bitmap = rotatedBitmap;
                 }catch(java.lang.NullPointerException e){
                     Toast.makeText(PopDish.this, "Please select an image.", Toast.LENGTH_LONG).show();
                     return;
@@ -218,6 +223,7 @@ public class PopDish extends Activity{
         */
         //dishImage.setImageBitmap(thumbnail);
         dishImage.setImageURI(mHighQualityImageUri);
+        dishImage.setRotation(90);
     }
 
     @SuppressWarnings("deprecation")
@@ -233,5 +239,6 @@ public class PopDish extends Activity{
         }
 
         dishImage.setImageBitmap(bm);
+        dishImage.setRotation(90);
     }
 }

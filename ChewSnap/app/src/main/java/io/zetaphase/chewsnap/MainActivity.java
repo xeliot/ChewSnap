@@ -14,6 +14,7 @@ public class MainActivity extends FragmentActivity {
     ArrayList<Meal> inboxList = new ArrayList<Meal>();
     public static DishAdapter dishAdapter;
     public static MealAdapter mealAdapter;
+    public static MealDishAdapter mealDishAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

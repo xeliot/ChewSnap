@@ -44,8 +44,8 @@ public class ViewMealPopup extends Activity{ //when creating new activity popup,
         ratingBar.setRating(meal.getNumStars());
 
         mealDishListView = (ListView) findViewById(R.id.viewMealList);
-        MainActivity.dishAdapter = new DishAdapter(this, 0, meal.getDishes());
-        mealDishListView.setAdapter(MainActivity.dishAdapter);
+        MainActivity.mealDishAdapter = new MealDishAdapter(this, 0, meal.getDishes());
+        mealDishListView.setAdapter(MainActivity.mealDishAdapter);
 
     }
 }
