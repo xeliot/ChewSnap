@@ -112,7 +112,11 @@ public class LoginActivity extends Activity {
                 new Runnable() {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
+                        if(getResponse()=="login_200_FOUND"){
+                            onLoginSuccess();
+                        }else if(getResponse()=="login_404_NOTFOUND"){
+                            onLoginFailed();
+                        }
                         // onLoginFailed();
                         progressDialog.dismiss();
                     }
@@ -187,7 +191,6 @@ public class LoginActivity extends Activity {
 
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
         _loginButton.setEnabled(true);
     }
 
