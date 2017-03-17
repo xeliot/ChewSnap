@@ -11,7 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class LoginActivity extends Activity {
@@ -22,6 +31,7 @@ public class LoginActivity extends Activity {
     EditText _passwordText;
     Button _loginButton;
     TextView _signupLink;
+    String response;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +47,11 @@ public class LoginActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                login();
+                try {
+                    login();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -52,7 +66,7 @@ public class LoginActivity extends Activity {
         });
     }
 
-    public void login() {
+    public void login() throws InterruptedException {
         Log.d(TAG, "Login");
 
         if (!validate()) {
@@ -67,10 +81,32 @@ public class LoginActivity extends Activity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        final String email = _emailText.getText().toString();
+        final String password = _passwordText.getText().toString();
+        String response = null;
 
         // TODO: Implement your own authentication logic here.
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                JSONObject login = new JSONObject();
+                try {
+                    login.put("email", email);
+                    login.put("password", password);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.d("OBJECT", login.toString());
+                StringBuffer a = request("http://10.78.43.147/login", login);
+
+                setResponse(a.toString());
+                Log.d("REPONSE", getResponse());
+            }
+        });
+
+        thread.start();
+        thread.join();
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -83,6 +119,46 @@ public class LoginActivity extends Activity {
                 }, 3000);
     }
 
+    private void setResponse(String response){
+        this.response = response;
+    }
+
+    private String getResponse(){
+        return this.response;
+    }
+    private StringBuffer request(String urlString, JSONObject jsonObj) {
+        // TODO Auto-generated method stub
+
+        StringBuffer chaine = new StringBuffer("");
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestProperty("User-Agent", "");
+            connection.setRequestMethod("POST");
+            connection.setDoInput(true);
+            connection.connect();
+
+            Log.d("REQUESTOUTPUT", "requesting");
+            byte[] b = jsonObj.toString().getBytes();
+            OutputStream outputStream = connection.getOutputStream();
+            outputStream.write(b);
+
+
+            InputStream inputStream = connection.getInputStream();
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream));
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                chaine.append(line);
+            }
+
+        } catch (IOException e) {
+            // writing exception to log
+            e.printStackTrace();
+        }
+
+        return chaine;
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

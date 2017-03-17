@@ -12,6 +12,7 @@ import ast
 import sqlite3
 
 app = Flask(__name__)
+DATABASE = "chew_snap_database.db"
 
 @app.route("/", methods=["GET", "POST"])
 def hello():
@@ -23,6 +24,7 @@ def hello():
 @app.route("/login", methods=["GET", "POST"])
 def request_login():
     print "user requesting login"
+    print str(request.form)
     pass
 
 @app.route("/signup", methods=["GET", "POST"])
