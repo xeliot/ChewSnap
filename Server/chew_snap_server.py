@@ -19,7 +19,17 @@ def hello():
     print "someone said get"
     return "What's up santosh"
     
-    
+
+@app.route("/login", methods=["GET", "POST"])
+def request_login():
+    print "user requesting login"
+    pass
+
+@app.route("/signup", methods=["GET", "POST"])
+def request_signup():
+    print "user requesting singup"
+    pass
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
     #app.run(host='0.0.0.0',port="80")
