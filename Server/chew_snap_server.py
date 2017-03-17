@@ -25,7 +25,23 @@ def hello():
 def request_login():
     print "user requesting login"
     print str(request.form)
-    pass
+    parameters = str(request.form)[22:]
+    parameters = parameters[:-9]
+    print parameters
+    dic = ast.literal_eval(parameters)
+    email = dic["email"]
+    password = dic["password"]
+    print (email +  " " + password)
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute("SELECT * FROM users WHERE email='"+email+"' AND password='"+password+"'");
+    user = c.fetchone()
+    if(not user):
+        # user does not exist
+        return "login_404_NOTFOUND"
+    else:
+        # user does exist
+        return "login_200_FOUND"
 
 @app.route("/signup", methods=["GET", "POST"])
 def request_signup():
