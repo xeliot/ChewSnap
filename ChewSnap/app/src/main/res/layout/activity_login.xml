@@ -20,14 +20,14 @@
             android:layout_gravity="center_horizontal" />
 
         <!-- Email Label -->
-        <EditText android:id="@+id/input_email"
+        <EditText android:id="@+id/loginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:hint="Email" />
 
         <!-- Password Label -->
-        <EditText android:id="@+id/input_password"
+        <EditText android:id="@+id/loginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

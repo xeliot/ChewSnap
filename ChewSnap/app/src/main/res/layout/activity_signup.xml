@@ -21,21 +21,21 @@
             android:layout_gravity="center_horizontal" />
 
         <!--  Name Label -->
-        <EditText android:id="@+id/input_name"
+        <EditText android:id="@+id/signupName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
             android:hint="Name" />
 
         <!-- Email Label -->
-        <EditText android:id="@+id/input_email"
+        <EditText android:id="@+id/signupEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:hint="Email" />
 
         <!-- Password Label -->
-        <EditText android:id="@+id/input_password"
+        <EditText android:id="@+id/signupPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
