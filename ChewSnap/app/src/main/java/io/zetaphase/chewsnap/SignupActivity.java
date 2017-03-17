@@ -1,8 +1,8 @@
 package io.zetaphase.chewsnap;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends Activity {
     private static final String TAG = "SignupActivity";
 
     EditText _nameText;
