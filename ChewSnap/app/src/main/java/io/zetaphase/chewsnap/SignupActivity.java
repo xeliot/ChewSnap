@@ -19,6 +19,9 @@ public class SignupActivity extends Activity {
     EditText _passwordText;
     Button _signupButton;
     TextView _loginLink;
+    String response;
+
+    private String serverAddress = "192.168.1.65";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
