@@ -2,13 +2,26 @@ package io.zetaphase.chewsnap;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class SignupActivity extends Activity {
@@ -37,7 +50,11 @@ public class SignupActivity extends Activity {
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signup();
+                try {
+                    signup();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -50,7 +67,7 @@ public class SignupActivity extends Activity {
         });
     }
 
-    public void signup() {
+    public void signup() throws InterruptedException {
         Log.d(TAG, "Signup");
 
         if (!validate()) {
@@ -65,9 +82,37 @@ public class SignupActivity extends Activity {
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
-        String name = _nameText.getText().toString();
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        final String name = _nameText.getText().toString();
+        final String email = _emailText.getText().toString();
+        final String password = _passwordText.getText().toString();
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                JSONObject signup = new JSONObject();
+                try {
+                    signup.put("name", name);
+                    signup.put("email", email);
+                    signup.put("password", password);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.d("OBJECT", signup.toString());
+                StringBuffer a = request("http://"+serverAddress+"/signup", signup);
+
+                setResponse(a.toString());
+                Log.d("REPONSE", getResponse());
+            }
+        });
+
+        thread.start();
+        thread.join();
+
+        View view = this.getCurrentFocus();
+        if(view != null){
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
 
         // TODO: Implement your own signup logic here.
 
@@ -83,6 +128,46 @@ public class SignupActivity extends Activity {
                 }, 3000);
     }
 
+    private void setResponse(String response){
+        this.response = response;
+    }
+
+    private String getResponse(){
+        return this.response;
+    }
+    private StringBuffer request(String urlString, JSONObject jsonObj) {
+        // TODO Auto-generated method stub
+
+        StringBuffer chaine = new StringBuffer("");
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestProperty("User-Agent", "");
+            connection.setRequestMethod("POST");
+            connection.setDoInput(true);
+            connection.connect();
+
+            Log.d("REQUESTOUTPUT", "requesting");
+            byte[] b = jsonObj.toString().getBytes();
+            OutputStream outputStream = connection.getOutputStream();
+            outputStream.write(b);
+
+
+            InputStream inputStream = connection.getInputStream();
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream));
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                chaine.append(line);
+            }
+
+        } catch (IOException e) {
+            // writing exception to log
+            e.printStackTrace();
+        }
+
+        return chaine;
+    }
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
