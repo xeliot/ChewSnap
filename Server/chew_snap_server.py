@@ -34,8 +34,9 @@ def request_login():
     print (email +  " " + password)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    c.execute("SELECT * FROM users WHERE email='"+email+"' AND password='"+password+"'");
+    c.execute("SELECT * FROM users WHERE email='"+email+"' AND password='"+password+"'")
     user = c.fetchone()
+    conn.close()
     if(not user):
         # user does not exist
         return "login_404_NOTFOUND"
@@ -45,8 +46,30 @@ def request_login():
 
 @app.route("/signup", methods=["GET", "POST"])
 def request_signup():
-    print "user requesting singup"
-    pass
+    print "user requesting signup"
+    print str(request.form)
+    parameters = str(request.form)[22:] #remove immutable dict tags
+    parameters = parameters[:-9]
+    print parameters
+    dic = ast.literal_eval(parameters)
+    name = dic["name"]
+    email = dic["email"]
+    password = dic["password"]
+    phone = dic["phone"]
+    print (name + " " + email + " " + password)
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute("SELECT * FROM users WHERE email='"+email+"'")
+    user = c.fetchone()
+    if(user != None):
+        return "signup_409_USEREXISTS"
+    else:
+        c.execute('SELECT COUNT(userid) FROM users')
+        count = c.fetchone()[0]
+        c.execute("INSERT INTO users VALUES("+count+", '"+name+"', '"+email+"', '"+password+"', '"+phone+"')")
+        conn.commit()
+        conn.close()
+        return "signup_200_OK"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
