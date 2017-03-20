@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -95,9 +94,6 @@ public class SignupActivity extends Activity {
                     signup.put("name", name);
                     signup.put("email", email);
                     signup.put("password", password);
-                    TelephonyManager tm = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
-                    String number = tm.getLine1Number();
-                    signup.put("phone", number);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
