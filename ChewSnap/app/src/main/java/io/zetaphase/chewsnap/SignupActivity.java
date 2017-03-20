@@ -121,7 +121,11 @@ public class SignupActivity extends Activity {
                     public void run() {
                         // On complete call either onSignupSuccess or onSignupFailed
                         // depending on success
-                        onSignupSuccess();
+                        if(getResponse().equals("signup_200_OK")){
+                            onSignupSuccess();
+                        }else if(getResponse().equals("signup_409_USEREXISTS")){
+                            onSignupFailed();
+                        }
                         // onSignupFailed();
                         progressDialog.dismiss();
                     }
@@ -176,8 +180,7 @@ public class SignupActivity extends Activity {
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getBaseContext(), "Signup failed", Toast.LENGTH_LONG).show();
         _signupButton.setEnabled(true);
     }
 
