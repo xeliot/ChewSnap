@@ -66,7 +66,7 @@ def request_signup():
     else:
         c.execute('SELECT COUNT(userid) FROM users')
         count = c.fetchone()[0]
-        c.execute("INSERT INTO users VALUES("+count+", '"+name+"', '"+email+"', '"+password+"', '"+phone+"')")
+        c.execute("INSERT INTO users VALUES("+str(count)+", '"+name+"', '"+email+"', '"+password+"', '"+phone+"')")
         conn.commit()
         conn.close()
         return "signup_200_OK"
