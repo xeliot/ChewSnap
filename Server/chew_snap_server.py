@@ -55,7 +55,6 @@ def request_signup():
     name = dic["name"]
     email = dic["email"]
     password = dic["password"]
-    phone = dic["phone"]
     print (name + " " + email + " " + password)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
@@ -66,7 +65,7 @@ def request_signup():
     else:
         c.execute('SELECT COUNT(userid) FROM users')
         count = c.fetchone()[0]
-        c.execute("INSERT INTO users VALUES("+str(count)+", '"+name+"', '"+email+"', '"+password+"', '"+phone+"')")
+        c.execute("INSERT INTO users VALUES("+str(count)+", '"+name+"', '"+email+"', '"+password+"')")
         conn.commit()
         conn.close()
         return "signup_200_OK"
