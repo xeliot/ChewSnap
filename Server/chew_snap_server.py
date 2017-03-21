@@ -34,8 +34,9 @@ def request_login():
     print (email +  " " + password)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    c.execute("SELECT * FROM users WHERE email='"+email+"' AND password='"+password+"'")
+    c.execute("SELECT name FROM users WHERE email='"+email+"' AND password='"+password+"'")
     user = c.fetchone()
+    print user
     conn.close()
     if(not user):
         # user does not exist
