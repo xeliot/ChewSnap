@@ -11,16 +11,22 @@ import java.util.ArrayList;
 public class Meal {
     private String title;
     private String description;
+    private String location;
     private int numStars;
     private ArrayList<Dish> dishes;
     private Bitmap image;
 
-    public Meal(String title, String description){
+    public Meal(String title, String description, String location){
         this.title = title;
         this.description = description;
         this.numStars = 0;
+        this.location = location;
         dishes = new ArrayList<Dish>();
     }
+
+    public void setLocation(String location) {this.location = location;}
+
+    public String getLocation() {return this.location;}
 
     public void setTitle(String title){
         this.title = title;
