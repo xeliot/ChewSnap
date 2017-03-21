@@ -56,14 +56,6 @@ public class Meal {
         this.dishes = dishes;
     }
 
-    public void addDish(Dish dish){
-        dishes.add(dish);
-    }
-
-    public void removeDish(Dish dish){
-        dishes.remove(dish);
-    }
-
     public ArrayList<Dish> getDishes(){
         return dishes;
     }

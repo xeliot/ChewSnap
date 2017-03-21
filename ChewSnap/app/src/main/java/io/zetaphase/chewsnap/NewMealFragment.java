@@ -95,10 +95,9 @@ public class NewMealFragment extends Fragment{
 
         TextView title = (TextView) getActivity().findViewById(R.id.mealName);
         TextView description = (TextView) getActivity().findViewById(R.id.description);
+        TextView location = (TextView) getActivity().findViewById(R.id.restaurantName);
 
-
-
-        Meal meal = new Meal(title.getText().toString(), description.getText().toString());
+        Meal meal = new Meal(title.getText().toString(), description.getText().toString(), location.getText().toString());
         meal.setDishes(MainActivity.dishList);
         double averageRating = 0;
         for(Dish dish : MainActivity.dishList){

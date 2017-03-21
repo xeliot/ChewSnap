@@ -72,6 +72,7 @@ public class PopDish extends Activity{
                 }
                 Dish dish = new Dish(title.getText().toString(), description.getText().toString(), (int) rating.getRating());
                 dish.setBitmap(bitmap);
+
                 MainActivity.dishList.add(dish);
                 runOnUiThread(new Runnable() {
                     @Override
