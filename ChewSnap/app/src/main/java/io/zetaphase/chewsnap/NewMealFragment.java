@@ -40,7 +40,8 @@ public class NewMealFragment extends Fragment{
                 if (MainActivity.dishList.isEmpty()){
                     Toast.makeText(getActivity(), "Please add some dishes.", Toast.LENGTH_LONG).show();
                 }else{
-                    addMeal();
+                    boolean a = addMeal();
+                    if(!a){return;}
                     resetFragment();
                     Toast.makeText(getActivity(), "New Meal has been added!", Toast.LENGTH_LONG).show();
                 }
@@ -91,7 +92,7 @@ public class NewMealFragment extends Fragment{
         return view;
     }
 
-    public void addMeal(){
+    public boolean addMeal(){
 
         TextView title = (TextView) getActivity().findViewById(R.id.mealName);
         TextView description = (TextView) getActivity().findViewById(R.id.description);
@@ -99,7 +100,7 @@ public class NewMealFragment extends Fragment{
 
         if(title.getText().toString().isEmpty() || description.getText().toString().isEmpty() || location.getText().toString().isEmpty()){
             Toast.makeText(getActivity(), "Please fill in the remaining fields.", Toast.LENGTH_LONG).show();
-            return;
+            return false;
         }
 
         Meal meal = new Meal(title.getText().toString(), description.getText().toString(), location.getText().toString());
@@ -117,7 +118,7 @@ public class NewMealFragment extends Fragment{
         MainActivity.mealAdapter.updateMealList(superActivity.mealList);
         MainActivity.mealAdapter.notifyDataSetChanged();
         Log.d("addMEAL", ""+superActivity.mealList.get(0).getTitle());
-
+        return true;
     }
 
     public void resetFragment(){
