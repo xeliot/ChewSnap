@@ -9,8 +9,6 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,12 +35,13 @@ public class MealAdapter extends ArrayAdapter<Meal>{
 
         TextView title = (TextView) view.findViewById(R.id.mealTitle);
         TextView description = (TextView) view.findViewById(R.id.mealDescription);
-        TextView location = (TextView) view.findViewById(R.id.meallo)
+        TextView location = (TextView) view.findViewById(R.id.mealLocation);
         RatingBar rating = (RatingBar) view.findViewById(R.id.mealRating);
         ImageView image = (ImageView) view.findViewById(R.id.mealImage);
 
         title.setText(meal.getTitle());
         description.setText(meal.getDescription());
+        location.setText(meal.getLocation());
         rating.setRating(meal.getNumStars());
         image.setImageBitmap(meal.getBitmap());
 
