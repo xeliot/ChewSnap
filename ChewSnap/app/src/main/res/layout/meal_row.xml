@@ -47,4 +47,17 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:text="Location"
+        android:id="@+id/mealLocation"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:textSize="16sp"
+        android:layout_alignBottom="@+id/mealRating"
+        android:layout_toRightOf="@+id/mealRating"
+        android:layout_toEndOf="@+id/mealRating" />
+
 </RelativeLayout>
