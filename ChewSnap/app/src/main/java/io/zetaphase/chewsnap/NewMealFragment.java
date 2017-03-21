@@ -97,6 +97,11 @@ public class NewMealFragment extends Fragment{
         TextView description = (TextView) getActivity().findViewById(R.id.description);
         TextView location = (TextView) getActivity().findViewById(R.id.restaurantName);
 
+        if(title.getText().toString().isEmpty() || description.getText().toString().isEmpty() || location.getText().toString().isEmpty()){
+            Toast.makeText(getActivity(), "Please fill in the remaining fields.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Meal meal = new Meal(title.getText().toString(), description.getText().toString(), location.getText().toString());
         meal.setDishes(MainActivity.dishList);
         double averageRating = 0;

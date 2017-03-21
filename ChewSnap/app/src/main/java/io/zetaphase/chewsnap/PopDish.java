@@ -70,6 +70,9 @@ public class PopDish extends Activity{
                     Toast.makeText(PopDish.this, "Please select an image.", Toast.LENGTH_LONG).show();
                     return;
                 }
+                if(title.getText().toString().isEmpty() || description.getText().toString().isEmpty() || (int)rating.getRating()==0){
+                    Toast.makeText(PopDish.this, "Please fill in the remaining fields.", Toast.LENGTH_LONG).show();
+                }
                 Dish dish = new Dish(title.getText().toString(), description.getText().toString(), (int) rating.getRating());
                 dish.setBitmap(bitmap);
 
