@@ -185,7 +185,9 @@ public class LoginActivity extends Activity {
 
                 // TODO: Implement successful signup logic here
                 // By default we just finish the Activity and log them in automatically
-                this.finish();
+                Toast.makeText(getBaseContext(), "Welcome to ChewSnap!", Toast.LENGTH_LONG).show();
+                onLoginSuccess();
+                //this.finish();
             }
         }
     }

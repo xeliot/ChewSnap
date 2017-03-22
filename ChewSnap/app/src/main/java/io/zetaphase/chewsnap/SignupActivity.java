@@ -180,7 +180,7 @@ public class SignupActivity extends Activity {
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Signup failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "User Already Exists", Toast.LENGTH_LONG).show();
         _signupButton.setEnabled(true);
     }
 
