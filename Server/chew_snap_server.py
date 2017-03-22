@@ -43,7 +43,7 @@ def request_login():
         return "login_404_NOTFOUND"
     else:
         # user does exist
-        return "login_200_FOUND"
+        return "login_200_FOUND " + user
 
 @app.route("/signup", methods=["GET", "POST"])
 def request_signup():
