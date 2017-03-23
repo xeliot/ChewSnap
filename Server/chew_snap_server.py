@@ -33,10 +33,12 @@ def request_login():
     email = dic["email"]
     password = dic["password"]
     # should use bcrypt encryption here
-    print (email +  " " + password)
+    hashed = bcrypt.hashpw(password, bcrypt.gensalt());
+    print (email +  " " + password + "" + hashed)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    c.execute("SELECT name FROM users WHERE email='"+email+"' AND password='"+password+"'")
+    #c.execute("SELECT name FROM users WHERE email='"+email+"' AND password='"+password+"'")
+    c.execute("SELECT * FROM users WHERE email='"+email+"'")
     user = c.fetchone()[0]
     print user
     conn.close()
@@ -44,6 +46,7 @@ def request_login():
         # user does not exist
         return "login_404_NOTFOUND"
     else:
+        #check if password matches here
         # user does exist
         return "login_200_FOUND " + user
 
