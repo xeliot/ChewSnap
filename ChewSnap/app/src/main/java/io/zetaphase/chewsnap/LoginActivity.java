@@ -124,12 +124,13 @@ public class LoginActivity extends Activity {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
                         String r = getResponse();
-                        String tag = r.substring(0, 15);
-                        String name = r.substring(16);
+                        String[] splited = r.split("\\s+");
+                        String tag = splited[0];
                         if(tag.equals("login_200_FOUND")){
+                            String name = splited[1];
                             Toast.makeText(LoginActivity.this, "Welcome Back "+name+"!", Toast.LENGTH_LONG).show();
                             onLoginSuccess();
-                        }else if(r.equals("login_404_NOTFOUND")){
+                        }else if(tag.equals("login_404_NOTFOUND")){
                             onLoginFailed();
                         }
                         // onLoginFailed();

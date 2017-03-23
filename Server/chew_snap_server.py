@@ -33,8 +33,8 @@ def request_login():
     email = dic["email"]
     password = dic["password"]
     # should use bcrypt encryption here
-    hashed = bcrypt.hashpw(password, bcrypt.gensalt());
-    print (email +  " " + password + "" + hashed)
+    #hashed = bcrypt.hashpw(password, bcrypt.gensalt());
+    print (email +  " " + password)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
     #c.execute("SELECT name FROM users WHERE email='"+email+"' AND password='"+password+"'")
@@ -48,10 +48,16 @@ def request_login():
     else:
         #check if password matches here
         '''
-        if()
+        name = user[1]
+        email = user[2]
+        hashed = user[3]
+        if(bcrypt.hashpw(password, hashed)==hashed):
+            return "login_200_FOUND " + name
+        else:
+            return "login_201_INVALIID"
         '''
         # user does exist
-        return "login_200_FOUND " + user[1]
+        return "login_200_FOUND " + name
 
 @app.route("/signup", methods=["GET", "POST"])
 def request_signup():
@@ -65,6 +71,7 @@ def request_signup():
     email = dic["email"]
     password = dic["password"]
     print (name + " " + email + " " + password)
+    hashed = bcrypt.hashpw(password, bcrypt.gensalt());
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
     c.execute("SELECT * FROM users WHERE email='"+email+"'")
@@ -74,7 +81,7 @@ def request_signup():
     else:
         c.execute('SELECT COUNT(userid) FROM users')
         count = c.fetchone()[0]
-        c.execute("INSERT INTO users VALUES("+str(count)+", '"+name+"', '"+email+"', '"+password+"')")
+        c.execute("INSERT INTO users VALUES("+str(count)+", '"+name+"', '"+email+"', '"+hashed+"')")
         conn.commit()
         conn.close()
         return "signup_200_OK"
