@@ -10,6 +10,7 @@ from flask import request
 import json as mjson
 import ast
 import sqlite3
+import bcrypt
 
 app = Flask(__name__)
 DATABASE = "chew_snap_database.db"
@@ -31,6 +32,7 @@ def request_login():
     dic = ast.literal_eval(parameters)
     email = dic["email"]
     password = dic["password"]
+    # should use bcrypt encryption here
     print (email +  " " + password)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()

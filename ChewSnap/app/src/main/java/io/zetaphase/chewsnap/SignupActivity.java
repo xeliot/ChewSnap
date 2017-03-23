@@ -34,9 +34,6 @@ public class SignupActivity extends Activity {
     TextView _loginLink;
     String response;
 
-    final String name = _nameText.getText().toString();
-    final String email = _emailText.getText().toString();
-    final String password = _passwordText.getText().toString();
 
     private String serverAddress = "192.168.1.65";
 
@@ -86,6 +83,9 @@ public class SignupActivity extends Activity {
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
+        final String name = _nameText.getText().toString();
+        final String email = _emailText.getText().toString();
+        final String password = _passwordText.getText().toString();
 
         Thread thread = new Thread(new Runnable() {
             @Override
