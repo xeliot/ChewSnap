@@ -39,7 +39,7 @@ def request_login():
     c = conn.cursor()
     #c.execute("SELECT name FROM users WHERE email='"+email+"' AND password='"+password+"'")
     c.execute("SELECT * FROM users WHERE email='"+email+"'")
-    user = c.fetchone()[0]
+    user = c.fetchone()
     print user
     conn.close()
     if(not user):
@@ -47,8 +47,11 @@ def request_login():
         return "login_404_NOTFOUND"
     else:
         #check if password matches here
+        '''
+        if()
+        '''
         # user does exist
-        return "login_200_FOUND " + user
+        return "login_200_FOUND " + user[1]
 
 @app.route("/signup", methods=["GET", "POST"])
 def request_signup():
