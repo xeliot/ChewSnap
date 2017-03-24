@@ -75,7 +75,7 @@ public class LoginActivity extends Activity {
         Log.d(TAG, "Login");
 
         if (!validate()) {
-            onLoginFailed();
+            onLoginFailed("");
             return;
         }
 
@@ -131,7 +131,9 @@ public class LoginActivity extends Activity {
                             Toast.makeText(LoginActivity.this, "Welcome Back "+name+"!", Toast.LENGTH_LONG).show();
                             onLoginSuccess();
                         }else if(tag.equals("login_404_NOTFOUND")){
-                            onLoginFailed();
+                            onLoginFailed("Login Failed: User not Found");
+                        }else if(tag.equals("login_201_INVALID")){
+                            onLoginFailed("Login Failed: Password is Invalid");
                         }
                         // onLoginFailed();
                         progressDialog.dismiss();
@@ -207,9 +209,9 @@ public class LoginActivity extends Activity {
         finish();
     }
 
-    public void onLoginFailed() {
+    public void onLoginFailed(String type) {
         _loginButton.setEnabled(true);
-        Toast.makeText(this, "Login Failed: User Not Found", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, type, Toast.LENGTH_LONG).show();
     }
 
     public boolean validate() {
