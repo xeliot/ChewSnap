@@ -7,7 +7,6 @@ Created on Thu Mar 16 22:56:13 2017
 
 from flask import Flask
 from flask import request
-import json as mjson
 import ast
 import sqlite3
 import bcrypt
@@ -32,12 +31,9 @@ def request_login():
     dic = ast.literal_eval(parameters)
     email = dic["email"]
     password = dic["password"]
-    # should use bcrypt encryption here
-    #hashed = bcrypt.hashpw(password, bcrypt.gensalt());
     print (email +  " " + password)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    #c.execute("SELECT name FROM users WHERE email='"+email+"' AND password='"+password+"'")
     c.execute("SELECT * FROM users WHERE email='"+email+"'")
     user = c.fetchone()
     print user
@@ -46,7 +42,7 @@ def request_login():
         # user does not exist
         return "login_404_NOTFOUND"
     else:
-        #check if password matches here        
+        # user does exist   
         name = user[1]
         email = user[2]
         hashed = user[3]
@@ -55,8 +51,6 @@ def request_login():
             return "login_200_FOUND " + name
         else:
             return "login_201_INVALID"
-        # user does exist
-        #return "login_200_FOUND " + name
 
 @app.route("/signup", methods=["GET", "POST"])
 def request_signup():
@@ -87,4 +81,3 @@ def request_signup():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
-    #app.run(host='0.0.0.0',port="80")
