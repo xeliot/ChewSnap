@@ -50,10 +50,10 @@ def request_login():
         name = user[1]
         email = user[2]
         hashed = user[3]
-        if(bcrypt.hashpw(password, hashed)==hashed):
+        if(bcrypt.hashpw(password, hashed)==hashed): #check if password hash matches
             return "login_200_FOUND " + name
         else:
-            return "login_201_INVALIID"
+            return "login_201_INVALID"
         # user does exist
         #return "login_200_FOUND " + name
 
