@@ -46,8 +46,7 @@ def request_login():
         # user does not exist
         return "login_404_NOTFOUND"
     else:
-        #check if password matches here
-        '''
+        #check if password matches here        
         name = user[1]
         email = user[2]
         hashed = user[3]
@@ -55,9 +54,8 @@ def request_login():
             return "login_200_FOUND " + name
         else:
             return "login_201_INVALIID"
-        '''
         # user does exist
-        return "login_200_FOUND " + name
+        #return "login_200_FOUND " + name
 
 @app.route("/signup", methods=["GET", "POST"])
 def request_signup():
