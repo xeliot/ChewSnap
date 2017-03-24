@@ -19,5 +19,9 @@ This app was built using Android Studio for the front-end UI design. It includes
 
 The server side of this app is built using Python flask server. It utilizes shared-file system for storage of images and sqlite3 library of python for database storage of user and meal information.
 
+### Quick Start For Developers
+
+This application is still in the building process. I encourage any developers who want to contribute to fork the repository and pull request to main branch.
+
 &copy; 2017, Xeliot. All Rights Reserved.  
 - Licensed Under GPL V3
