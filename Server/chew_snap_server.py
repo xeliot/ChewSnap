@@ -50,7 +50,7 @@ def request_login():
         name = user[1]
         email = user[2]
         hashed = user[3]
-        hashed.encode('ascii', 'ignore')
+        hashed = hashed.encode('ascii', 'ignore') # mreencode the unicode hash
         if(bcrypt.hashpw(password, hashed)==hashed): #check if password hash matches
             return "login_200_FOUND " + name
         else:
