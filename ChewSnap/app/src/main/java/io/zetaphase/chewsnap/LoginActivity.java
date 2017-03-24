@@ -35,8 +35,8 @@ public class LoginActivity extends Activity {
     TextView _signupLink;
     String response;
 
-    //private String serverAddress = "192.168.1.65";
-    private String serverAddress = "10.78.43.147";
+    private String serverAddress = "192.168.1.65";
+    //private String serverAddress = "10.78.43.147";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
