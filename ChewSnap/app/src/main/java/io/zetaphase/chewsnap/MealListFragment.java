@@ -19,14 +19,10 @@ import android.widget.ListView;
 public class MealListFragment extends Fragment {
 
     private ListView mealListView;
-    //private MealAdapter<Meal> listAdapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //FragmentTransaction ft = getFragmentManager().beginTransaction();
-        //ft.add(this, "mealListView");
-        //ft.commit();
         MainActivity superActivity = (MainActivity) getActivity();
         View view = inflater.inflate(R.layout.meal_list_fragment, container , false);
         mealListView = (ListView) view.findViewById(R.id.mealList);

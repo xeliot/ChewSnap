@@ -64,6 +64,7 @@ public class LoginActivity extends Activity {
 
             @Override
             public void onClick(View v) {
+                Log.d("working", "working");
                 // Start the Signup activity
                 Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
